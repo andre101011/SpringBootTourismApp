@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header">
+
+</head>
+<body>
+	<div class="container mt-4">
+		<script>
+			$('#datepicker').datepicker('setStartDate', '2020-09-09');
+		</script>
+		<div class="col-sm-6">
+			<form th:action="@{/travels/save}" th:object=${travel} method="POST"}>
+				<div class="card">
+					<div class="card-header">
+						<h3>Travel module</h3>
+					</div>
+					<!-- <input type="hidden" th:field="*{id}" /> -->
+					<div class="card-body">
+
+						<div class="form-group">
+							<label>Tourist ID</label> <input th:field="*{tourist.id}"
+								type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>DESTINATION</label> <select class="custom-select mr-sm-2"
+								th:field="*{city.id}" id="city.id"
+								onChange="onstatechange(this)">
+								<option th:each="city : ${cities}" th:value="${city.id}"
+									th:text="${city}"></option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label>Date</label> <input th:field="*{date}" type="date"
+								class="form-control" id="datepicker1" required />
+						</div>
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="Save" class="btn btn-success">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+	<footer th:replace="fragments/footer :: footer">
+		</div>
+</body>
+
+
+</html>

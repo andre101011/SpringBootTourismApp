@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header"></head>
+<body>
+
+
+	<div class="container mt-4">
+		<div class="col-sm-6">
+			<form th:action="@{/tourists/save}" th:object=${tourist}
+				method="POST"}>
+				<div class="card">
+					<div class="card-header">
+						<h3>Tourist module</h3>
+					</div>
+					<div class="card-body">
+						<div class="form-group">
+							<label>ID</label> <input th:field="*{id}" type="text"
+								class="form-control" required autocomplete="off" />
+						</div>
+						<div class="form-group">
+							<label>FULLNAME</label> <input th:field="*{fullName}" type="text"
+								class="form-control" required autocomplete="off" />
+						</div>
+						<div class="form-group">
+							<label>BIRTHDATE</label> <input th:field="*{birthDate}"
+								type="date" class="form-control" required autocomplete="off" />
+
+						</div>
+						<div class="form-group">
+							<label>IDTYPE</label> <input th:field="*{idType}" type="text"
+								class="form-control" required />
+						</div>
+
+						<div class="form-group">
+							<label>TRAVELFRECUENCY</label> <input
+								th:field="*{travelFrecuency}" type="number" class="form-control"
+								min="0" required autocomplete="off" />
+						</div>
+						<div class="form-group">
+							<label>TRAVELBUDGET</label> <input th:field="*{travelBudget}"
+								type="number" class="form-control" step="0.01" min="1" required
+								autocomplete="off" />
+						</div>
+
+						<div class="form-group">
+							<label>HASCREDITCARD</label> <input th:field="*{hasCreditCard}"
+								type="checkbox" value="true" class="form-control" />
+						</div>
+
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="Save" class="btn btn-success">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<footer th:replace="fragments/footer :: footer">
+		</div>
+</body>
+</html>
